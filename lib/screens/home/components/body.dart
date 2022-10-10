@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:quiz_tutorial_app/constants.dart';
-import 'package:quiz_tutorial_app/models/Product.dart';
-import 'package:quiz_tutorial_app/screens/details/details_screen.dart';
-import 'package:quiz_tutorial_app/services/database.dart';
+import 'package:quiz_app_kjs/constants.dart';
+import 'package:quiz_app_kjs/models/Product.dart';
+import 'package:quiz_app_kjs/screens/details/details_screen.dart';
+import 'package:quiz_app_kjs/services/database.dart';
 
 import 'categorries.dart';
 import 'item_card.dart';

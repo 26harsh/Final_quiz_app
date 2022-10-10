@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:quiz_tutorial_app/screens/addquestion.dart';
-import 'package:quiz_tutorial_app/services/database.dart';
+import 'package:quiz_app_kjs/screens/addquestion.dart';
+import 'package:quiz_app_kjs/services/database.dart';
 
 import '../widgets/widgets.dart';
 // import 'package:quizz_app_2/views/addquestion.dart';

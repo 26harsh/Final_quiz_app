@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:quiz_tutorial_app/services/database.dart';
+import 'package:quiz_app_kjs/services/database.dart';
 
 class Product {
   final String image, title, description, id;
@@ -121,27 +121,28 @@ List<Product> products = [
       size: 12,
       description: "dummyText",
       image: "assets/images/ip.png",
+      color: Colors.blue.shade400
+  ),
+
+  Product(
+      id: "4",
+      title: "Software Engineering",
+      size: 12,
+      description: "",
+      image: "assets/images/se.png",
+      color: Colors.blue.shade400),
+  Product(
+      id: "5",
+      title: "Theory Of Computer Science",
+      size: 12,
+      description: "",
+      image: "assets/images/tcs.png",
+      color: Colors.blue.shade400),
+  Product(
+      id: "5",
+      title: "State Based Learning",
+      size: 12,
+      description: "",
+      image: "assets/images/sbl.png",
       color: Colors.blue.shade400),
 ];
-  // Product(
-  //     id: 4,
-  //     title: "Software Engineering",
-  //     size: 12,
-  //     description: "",
-  //     image: "assets/images/se.png",
-  //     color: Colors.blue.shade400),
-  // Product(
-  //     id: 5,
-  //     title: "Theory Of Computer Science",
-  //     size: 12,
-  //     description: "",
-  //     image: "assets/images/tcs.png",
-  //     color: Colors.blue.shade400),
-  // Product(
-  //     id: 6,
-  //     title: "State Based Learning",
-  //     size: 12,
-  //     description: "",
-  //     image: "assets/images/sbl.png",
-  //     color: Colors.blue.shade400),
-// ];

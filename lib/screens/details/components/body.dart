@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_tutorial_app/constants.dart';
-import 'package:quiz_tutorial_app/models/Product.dart';
+import 'package:quiz_app_kjs/constants.dart';
+import 'package:quiz_app_kjs/models/Product.dart';
 
 import 'description.dart';
 import 'product_title_with_image.dart';
@@ -49,12 +49,13 @@ class Body extends StatelessWidget {
                         )
                       ],
                     )),
-                SizedBox(
-                    height: 50,
-                    child: OutlinedButton(
-                      onPressed: () {},
-                      child: Text("START QUIZ"),
-                    )),
+                // SizedBox(
+                //     height: 50,
+                //     // child: OutlinedButton(
+                //     //   onPressed: () {},
+                //     //   child: Text("START QUIZ"),
+                //     // )
+                //   ),
                 ProductTitleWithImage(product: product),
                 SizedBox(
                   width: kDefaultPaddin,

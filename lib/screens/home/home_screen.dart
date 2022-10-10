@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:quiz_tutorial_app/constants.dart';
-import 'package:quiz_tutorial_app/screens/home/components/body.dart';
+import 'package:quiz_app_kjs/constants.dart';
 
-import '../create_quiz.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -12,16 +10,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-      body: Body(),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        backgroundColor: Colors.orange,
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => CreateQuiz()));
-        },
-      ),
-      
     );
   }
 
@@ -30,7 +18,10 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       elevation: 0,
       leading: IconButton(
-          icon: SvgPicture.asset("assets/icons/back.svg"), onPressed: () {}),
+          icon: SvgPicture.asset(
+              "assets/icons/back.svg",
+              color: Colors.white,
+          ), onPressed: () {}),
       actions: <Widget>[
         IconButton(
           icon: SvgPicture.asset(
