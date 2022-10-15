@@ -91,7 +91,7 @@ class _BodyState extends State<Body> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0),
           child: Text(
             "Topics",
             style: Theme.of(context)

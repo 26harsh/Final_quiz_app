@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/container.dart';
+import 'package:provider/provider.dart';
+import 'package:quiz_app_kjs/Components/Authentication.dart';
 import 'package:quiz_app_kjs/screens/create_quiz.dart';
 import 'package:quiz_app_kjs/screens/home/components/body.dart';
 
@@ -13,9 +15,9 @@ class DrawerLabel extends StatefulWidget {
   final String? email;
   DrawerLabel(
       {required this.text,
-      required this.icon,
-      required this.onTap,
-      this.email});
+        required this.icon,
+        required this.onTap,
+        this.email});
 
   @override
   _DrawerLabelState createState() => _DrawerLabelState();
@@ -54,9 +56,10 @@ class Home_Page extends StatefulWidget {
 
 class _Home_PageState extends State<Home_Page> {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  
+  get user1 => _firebaseAuth.currentUser;
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<FirebaseAuthService>(context).currentUser();
     return Scaffold(
         appBar: AppBar(
           title: const Text('Quiz App'),
@@ -67,13 +70,34 @@ class _Home_PageState extends State<Home_Page> {
             child: ListView(padding: EdgeInsets.zero,
                 children: [
                   UserAccountsDrawerHeader(
-                      accountName: Text("Dark Coders"),
-                      accountEmail: Text("Dark@gmail.com"),
-                      currentAccountPicture: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            "https://st.depositphotos.com/2101611/3925/v/600/depositphotos_39258143-stock-illustration-businessman-avatar-profile-picture.jpg"
+                    accountName: Text(user1!.displayName.toString()),
+                    accountEmail: Text(user1!.email.toString()),
+                    currentAccountPicture: user1.photoURL != null
+                        ? ClipOval(
+                      child: Material(
+                        elevation: 2.0,
+                        shadowColor: Colors.black,
+                        color: Colors.grey.shade600,
+                        child: Image.network(
+                          user1.photoURL!,
+                          width: 60.0,
+                          fit: BoxFit.fitHeight,
                         ),
-                      )
+                      ),
+                    )
+                        : ClipOval(
+                      child: Material(
+                        // color: CustomColors.firebaseGrey.withOpacity(0.3),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Icon(
+                            Icons.person,
+                            size: 60,
+                            color: Colors.grey.shade600,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                   DrawerLabel(
                     icon: Icon(
@@ -84,10 +108,10 @@ class _Home_PageState extends State<Home_Page> {
                     onTap: () {  },
                   ),
                   DrawerLabel(
-                      icon: Icon(
-                        Icons.add_sharp,
-                        color: Colors.white,
-                      ),
+                    icon: Icon(
+                      Icons.add_sharp,
+                      color: Colors.white,
+                    ),
                     text: "History",
                     onTap: () {  },
                   ),
@@ -108,7 +132,7 @@ class _Home_PageState extends State<Home_Page> {
                                 actions: [
                                   Padding(
                                     padding:
-                                        const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                                    const EdgeInsets.fromLTRB(15, 10, 15, 10),
                                     // ignore: deprecated_member_use
                                     child: TextButton(
                                       child: Text("Yes"),
@@ -121,7 +145,7 @@ class _Home_PageState extends State<Home_Page> {
                                   ),
                                   Padding(
                                     padding:
-                                        const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                                    const EdgeInsets.fromLTRB(15, 10, 15, 10),
                                     // ignore: deprecated_member_use
                                     child: TextButton(
                                       child: Text("No"),
@@ -145,7 +169,7 @@ class _Home_PageState extends State<Home_Page> {
                               actions: [
                                 Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                                  const EdgeInsets.fromLTRB(15, 10, 15, 10),
                                   // ignore: deprecated_member_use
                                   child: TextButton(
                                     child: Text("Try Again"),
@@ -161,17 +185,17 @@ class _Home_PageState extends State<Home_Page> {
                       }
                     },
                   )
-            ]),
+                ]),
           ),
         ),
-      body: Body(),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        backgroundColor: Colors.orange,
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => CreateQuiz()));
-        },
-      ));
+        body: Body(),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          backgroundColor: Colors.orange,
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => CreateQuiz()));
+          },
+        ));
   }
 }
