@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:quiz_app_kjs/Components/AuthPage.dart';
 import 'package:quiz_app_kjs/Components/Authentication.dart';
 import 'package:quiz_app_kjs/Components/Home.dart';
+import 'package:quiz_app_kjs/quiz/quiz_screen.dart';
 import 'onboarding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -55,7 +56,7 @@ class MyApp extends StatelessWidget {
         home: const AuthPage(),
         routes: {
             "/home": (context) => Home_Page(),
-
+            "/quiz": (context) => QuizScreen(),
           },
       ),
     );

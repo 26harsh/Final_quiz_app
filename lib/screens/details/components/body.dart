@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app_kjs/constants.dart';
 import 'package:quiz_app_kjs/models/Product.dart';
+import 'package:quiz_app_kjs/quiz/quiz_screen.dart';
 
 import 'description.dart';
 import 'product_title_with_image.dart';
@@ -35,39 +36,52 @@ class Body extends StatelessWidget {
                           topLeft: Radius.circular(24),
                           topRight: Radius.circular(24),
                         )),
-                    child: Column(
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
+                    child:
                             Column(
                               children: <Widget>[
                                 Text("Description"),
                                 Description(product: product),
                               ],
                             )
-                          ],
-                        )
-                      ],
-                    )),
-                // SizedBox(
-                //     height: 50,
-                //     // child: OutlinedButton(
-                //     //   onPressed: () {},
-                //     //   child: Text("START QUIZ"),
-                //     // )
-                //   ),
+
+                    ),
                 ProductTitleWithImage(product: product),
                 SizedBox(
                   width: kDefaultPaddin,
                 ),
-                Expanded(
-                    child: Image.asset(
-                  product.image,
-                  width: 250,
-                  height: 250,
-                  scale: 0.1,
-                  alignment: Alignment.bottomLeft,
-                ))
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 450.0),
+                  child: Center(
+                    child: Expanded(
+                        child: Image.asset(
+                      product.image,
+                      width: 250,
+                      height: 250,
+                      scale: 0.1,
+                      alignment: Alignment.bottomLeft,
+                    )),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0.0, 320.0, 0.0, 0.0),
+                  child: Center(
+                    heightFactor: 150,
+                    child: SizedBox(
+                        height: 50,
+                        child: ElevatedButton(
+                          child: const Text('Start Quiz',
+                            style: TextStyle(fontSize: 20.0),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => QuizScreen()),
+                            );
+                          },
+                        ),
+                    ),
+                  ),
+                ),
               ],
             ),
           )

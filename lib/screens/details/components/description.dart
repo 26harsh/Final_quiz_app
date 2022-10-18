@@ -18,7 +18,12 @@ class Description extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin),
       child: Text(
         product.description,
-        style: TextStyle(height: 1.5),
+        style: TextStyle(
+            height: 1.5
+        ),
+        overflow: TextOverflow.ellipsis,
+        maxLines: 3,
+        softWrap: false,
       ),
     );
   }

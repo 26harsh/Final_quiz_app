@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_app_kjs/services/database.dart';
 
+
+String dummyText = "Computer networking";
 class Product {
   final String image, title, description, id;
   final int size;
@@ -103,23 +105,23 @@ Widget quizList() {
 List<Product> products = [
   Product(
       id: "1",
-      title: "DWMMMM",
+      title: "Data Warehousing",
       size: 12,
-      description: "ssssssssss",
+      description: "Data warehousing is a method of organizing and compiling data into one database, whereas data mining deals with fetching important data ",
       image: "assets/images/dwm.png",
       color: Colors.blue.shade400),
   Product(
       id: "2",
       title: "Computer Network",
       size: 12,
-      description: "ddddddddddddd",
+      description: "Computer networking refers to interconnected computing devices that can exchange data and share resources with each other",
       image: "assets/images/cn.png",
       color: Colors.blue.shade400),
   Product(
       id: "3",
       title: "Internet Programming",
       size: 12,
-      description: "dummyText",
+      description: "An Internet application is a client-server application that uses standard Internet protocols for connecting the client to the server.",
       image: "assets/images/ip.png",
       color: Colors.blue.shade400
   ),
@@ -128,7 +130,7 @@ List<Product> products = [
       id: "4",
       title: "Software Engineering",
       size: 12,
-      description: "",
+      description: "Software engineering is defined as a process of analyzing user requirements and then designing, building, and testing software application",
       image: "assets/images/se.png",
       color: Colors.blue.shade400),
   Product(

@@ -16,9 +16,8 @@ class ProductTitleWithImage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start ,
+        crossAxisAlignment: CrossAxisAlignment.center ,
         children: <Widget>[
-
           Text(
             product.title,
             style: Theme.of(context)
